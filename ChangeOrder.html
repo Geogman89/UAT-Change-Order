@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAT Space Program Launch Sequence</title>
+</head>
+<body>
+    <H1><b>Launch Sequence Countdown</b></H1>
+
+    <p id="DisplayCountdown"><B></B></p>
+    <link rel="stylesheet" href="ChangeOrder.css">
+
+    <script>
+      /*
+      George Thompson
+      5/18/22
+      Assignment: Change Order Request from the Fleet Admiral 
+      */
+
+     //I set the starting variable to 11 because it takes a second to load on page
+    var start = 11
+
+    // sets the variable countdown to call the seconds function every 1000 milliseconds
+    var countdown = setInterval(seconds, 1000);
+
+    // creates the seconds function to depreciate the start variable every time it is called
+    function seconds ()
+    {start=start-1;
+
+      //posts the T-minus then the start variable and then a s for seconds to the html file
+     document.getElementById("DisplayCountdown").innerHTML ="T-Minus " + start + "s";
+
+    //added a if condition to switch to give warning when less than 5 seconds
+      if (start <= 5) {
+         
+        document.getElementById("DisplayCountdown").innerHTML = "WARNING: Less than 1/2 way to launch, time left = T-Minus  " + start + "s";
+      }
+    //added a if statment to switch text to blastoff when timer hits 0 
+      if (start <= 0) {
+        
+        document.getElementById("DisplayCountdown").innerHTML = "BLASTOFF"
+
+      }
+    }
+
+        
+         
+
+   
+   </script>
+</body>
+</html>
